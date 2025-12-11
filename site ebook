@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso de Skin Care - Transforme Sua Pele</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #2D2D2D;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #E8F5E9 0%, #A5D6A7 50%, #C8E6C9 100%);
+            padding: 100px 20px 120px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.4)"/></svg>');
+            opacity: 0.5;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #66BB6A;
+            color: white;
+            padding: 10px 25px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 30px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        h1 {
+            font-size: 48px;
+            font-weight: 700;
+            color: #2E7D32;
+            margin-bottom: 25px;
+            line-height: 1.2;
+        }
+
+        .subtitle {
+            font-size: 22px;
+            color: #2D2D2D;
+            margin-bottom: 40px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            background: #66BB6A;
+            color: white;
+            padding: 22px 55px;
+            font-size: 20px;
+            font-weight: 700;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            box-shadow: 0 10px 30px rgba(102, 187, 106, 0.4);
+            display: inline-block;
+            text-decoration: none;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(102, 187, 106, 0.5);
+            background: #4CAF50;
+        }
+
+        /* Problem Section */
+        .problem-section {
+            padding: 80px 20px;
+            background: white;
+        }
+
+        h2 {
+            font-size: 38px;
+            text-align: center;
+            margin-bottom: 50px;
+            color: #2E7D32;
+        }
+
+        .problems-list {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .problem-item {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            margin-bottom: 15px;
+            background: #E8F5E9;
+            border-radius: 15px;
+            font-size: 18px;
+            transition: transform 0.3s ease;
+        }
+
+        .problem-item:hover {
+            transform: translateX(10px);
+        }
+
+        .problem-item::before {
+            content: '❌';
+            font-size: 24px;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+
+        .empathy-text {
+            text-align: center;
+            font-size: 20px;
+            margin-top: 40px;
+            font-style: italic;
+            color: #666;
+        }
+
+        /* Solution Section */
+        .solution-section {
+            padding: 80px 20px;
+            background: linear-gradient(to bottom, #C8E6C9, #FFFFFF);
+        }
+
+        .solution-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .solution-description {
+            font-size: 19px;
+            line-height: 1.8;
+            margin-top: 30px;
+            color: #2D2D2D;
+        }
+
+        /* What You Learn Section */
+        .learn-section {
+            padding: 80px 20px;
+            background: white;
+        }
+
+        .learn-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .learn-card {
+            background: linear-gradient(135deg, #E8F5E9, #A5D6A7);
+            padding: 35px;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .learn-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+
+        .learn-icon {
+            font-size: 50px;
+            margin-bottom: 20px;
+        }
+
+        .learn-card h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: #2E7D32;
+        }
+
+        .learn-card p {
+            font-size: 16px;
+            color: #2D2D2D;
+            line-height: 1.6;
+        }
+
+        /* Transform Section */
+        .transform-section {
+            padding: 80px 20px;
+            background: #F1F8E9;
+        }
+
+        .timeline {
+            max-width: 800px;
+            margin: 50px auto 0;
+            position: relative;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(to bottom, #66BB6A, #A5D6A7);
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        .timeline-item:nth-child(odd) {
+            flex-direction: row;
+        }
+
+        .timeline-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .timeline-content {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            width: 45%;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .timeline-dot {
+            width: 40px;
+            height: 40px;
+            background: #66BB6A;
+            border-radius: 50%;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 18px;
+            box-shadow: 0 0 0 10px #F1F8E9;
+        }
+
+        .timeline-content h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #66BB6A;
+        }
+
+        .timeline-content p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #2D2D2D;
+        }
+
+        /* For Who Section */
+        .forwho-section {
+            padding: 80px 20px;
+            background: white;
+        }
+
+        .forwho-list {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .forwho-item {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            margin-bottom: 15px;
+            background: #E8F5E9;
+            border-radius: 15px;
+            font-size: 18px;
+            transition: transform 0.3s ease;
+        }
+
+        .forwho-item:hover {
+            transform: translateX(10px);
+        }
+
+        .forwho-item::before {
+            content: '✅';
+            font-size: 24px;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+
+        /* Pricing Section */
+        .pricing-section {
+            padding: 80px 20px;
+            background: #F1F8E9;
+            text-align: center;
+        }
+
+        .price-container {
+            max-width: 600px;
+            margin: 40px auto;
+            background: linear-gradient(135deg, #E8F5E9, #C8E6C9);
+            padding: 50px;
+            border-radius: 30px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        .limited-offer {
+            background: #66BB6A;
+            color: white;
+            padding: 10px 25px;
+            border-radius: 30px;
+            display: inline-block;
+            margin-bottom: 30px;
+            font-weight: 700;
+            font-size: 16px;
+        }
+
+        .old-price {
+            text-decoration: line-through;
+            color: #666;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .current-price {
+            font-size: 48px;
+            font-weight: 900;
+            color: #2E7D32;
+            margin-bottom: 10px;
+        }
+
+        .installments {
+            font-size: 28px;
+            color: #1A1A1A;
+            margin-bottom: 30px;
+        }
+
+        .includes-list {
+            text-align: left;
+            margin: 30px 0;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+        }
+
+        .includes-list li {
+            padding: 10px 0;
+            font-size: 17px;
+            list-style: none;
+        }
+
+        .includes-list li::before {
+            content: '✅ ';
+            margin-right: 10px;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 80px 20px;
+            background: white;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: #F1F8E9;
+            padding: 25px;
+            margin-bottom: 15px;
+            border-radius: 15px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        .faq-question {
+            font-size: 20px;
+            font-weight: 700;
+            color: #2E7D32;
+            margin-bottom: 10px;
+        }
+
+        .faq-answer {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #2D2D2D;
+        }
+
+        /* Final CTA Section */
+        .final-cta {
+            padding: 100px 20px;
+            background: linear-gradient(135deg, #A5D6A7, #C8E6C9);
+            text-align: center;
+        }
+
+        .final-cta h2 {
+            font-size: 42px;
+            margin-bottom: 30px;
+            color: #2E7D32;
+        }
+
+        .final-message {
+            max-width: 800px;
+            margin: 0 auto 40px;
+            font-size: 20px;
+            line-height: 1.8;
+        }
+
+        .security-badges {
+            margin-top: 30px;
+            font-size: 14px;
+            color: #2D2D2D;
+        }
+
+        .security-badges div {
+            margin: 8px 0;
+        }
+
+        /* Footer */
+        footer {
+            background: #2E7D32;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        footer a {
+            color: #A5D6A7;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 32px;
+            }
+
+            h2 {
+                font-size: 28px;
+            }
+
+            .subtitle {
+                font-size: 18px;
+            }
+
+            .cta-button {
+                padding: 18px 40px;
+                font-size: 16px;
+            }
+
+            .learn-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline::before {
+                left: 20px;
+            }
+
+            .timeline-item {
+                flex-direction: row !important;
+            }
+
+            .timeline-content {
+                width: calc(100% - 60px);
+                margin-left: 60px;
+            }
+
+            .timeline-dot {
+                left: 20px;
+                transform: translateX(0);
+            }
+
+            .current-price {
+                font-size: 36px;
+            }
+
+            .installments {
+                font-size: 22px;
+            }
+        }
+
+        /* Floating CTA */
+        .floating-cta {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .floating-cta {
+                bottom: 10px;
+                right: 10px;
+            }
+            
+            .floating-cta .cta-button {
+                padding: 15px 25px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="badge">✨ Aprenda Skin Care do Jeito Certo</div>
+            <h1>Transforme Sua Pele e Sua Autoestima com Conhecimento Profissional</h1>
+            <p class="subtitle">Curso completo de Skin Care para você entender sua pele, criar sua rotina ideal e finalmente conquistar os resultados que sempre quis.</p>
+            <a href="#preco" class="cta-button">QUERO COMEÇAR MINHA TRANSFORMAÇÃO</a>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="problem-section">
+        <div class="container">
+            <h2>Você Se Identifica Com Isso?</h2>
+            <div class="problems-list">
+                <div class="problem-item">Não sabe por onde começar no skin care?</div>
+                <div class="problem-item">Compra produtos mas não vê resultados reais?</div>
+                <div class="problem-item">Está cansada de tentar e não conseguir melhorar sua pele?</div>
+                <div class="problem-item">Sente que gasta dinheiro sem saber se está no caminho certo?</div>
+                <div class="problem-item">Quer ter uma pele bonita mas não sabe como?</div>
+            </div>
+            <p class="empathy-text">"A verdade é que ninguém nasce sabendo cuidar da pele. Mas você pode aprender."</p>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section class="solution-section">
+        <div class="container">
+            <h2>A Solução: Conhecimento Transformador</h2>
+            <div class="solution-content">
+                <p class="subtitle">Um curso pensado para quem quer resultados reais</p>
+                <p class="solution-description">Neste curso você vai aprender tudo sobre skin care de forma clara, prática e acessível. Vamos te ensinar desde o básico até técnicas avançadas para você cuidar da sua pele com conhecimento e confiança.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- What You Learn Section -->
+    <section class="learn-section">
+        <div class="container">
+            <h2>O Que Você Vai Aprender</h2>
+            <div class="learn-grid">
+                <div class="learn-card">
+                    <div class="learn-icon">🔍</div>
+                    <h3>Entender Sua Pele</h3>
+                    <p>Descubra seu tipo de pele e suas necessidades específicas para cuidar dela da forma correta</p>
+                </div>
+                <div class="learn-card">
+                    <div class="learn-icon">🧴</div>
+                    <h3>Escolher Produtos</h3>
+                    <p>Aprenda a ler rótulos, identificar ingredientes e escolher produtos que realmente funcionam</p>
+                </div>
+                <div class="learn-card">
+                    <div class="learn-icon">⏰</div>
+                    <h3>Criar Rotinas</h3>
+                    <p>Monte rotinas práticas de manhã e noite que cabem na sua vida e trazem resultados</p>
+                </div>
+                <div class="learn-card">
+                    <div class="learn-icon">💡</div>
+                    <h3>Evitar Erros</h3>
+                    <p>Descubra os erros mais comuns que podem estar prejudicando sua pele sem você perceber</p>
+                </div>
+                <div class="learn-card">
+                    <div class="learn-icon">🎯</div>
+                    <h3>Tratar Problemas</h3>
+                    <p>Aprenda estratégias para lidar com acne, oleosidade, ressecamento e outros problemas</p>
+                </div>
+                <div class="learn-card">
+                    <div class="learn-icon">💰</div>
+                    <h3>Investir Bem</h3>
+                    <p>Saiba onde vale a pena gastar e onde economizar sem perder qualidade</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Transform Section -->
+    <section class="transform-section">
+        <div class="container">
+            <h2>Sua Jornada de Transformação</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot">1</div>
+                    <div class="timeline-content">
+                        <h3>Conhecimento Base</h3>
+                        <p>Comece entendendo os fundamentos do skin care e como sua pele realmente funciona</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot">2</div>
+                    <div class="timeline-content">
+                        <h3>Construção da Rotina</h3>
+                        <p>Aprenda a montar sua rotina personalizada com os passos certos na ordem certa</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot">3</div>
+                    <div class="timeline-content">
+                        <h3>Aplicação Prática</h3>
+                        <p>Coloque em prática o que aprendeu e comece a ver mudanças na sua pele</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot">4</div>
+                    <div class="timeline-content">
+                        <h3>Resultados Visíveis</h3>
+                        <p>Celebre a transformação da sua pele e da sua confiança</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- For Who Section -->
+    <section class="forwho-section">
+        <div class="container">
+            <h2>Este Curso é Para Você Se...</h2>
+            <div class="forwho-list">
+                <div class="forwho-item">Você está começando no mundo do skin care</div>
+                <div class="forwho-item">Quer aprender a cuidar da pele da forma correta</div>
+                <div class="forwho-item">Deseja ter uma rotina que realmente funciona</div>
+                <div class="forwho-item">Quer economizar comprando os produtos certos</div>
+                <div class="forwho-item">Busca resultados reais, não promessas vazias</div>
+                <div class="forwho-item">Quer investir em você mesma com inteligência</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing-section" id="preco">
+        <div class="container">
+            <h2>Comece Sua Transformação Hoje</h2>
+            <div class="price-container">
+                <div class="limited-offer">🔥 OFERTA ESPECIAL</div>
+                <div class="old-price">De R$ 97,00</div>
+                <div class="current-price">R$ 17,99</div>
+                <div class="installments">Pagamento único</div>
+                
+                <div class="includes-list">
+                    <li>Acesso completo ao curso</li>
+                    <li>Acesso vitalício ao conteúdo</li>
+                    <li>Assista quando e onde quiser</li>
+                
+                </div>
+                
+                <a href="https://pay.kiwify.com.br/ceGv6s6" class="cta-button">GARANTIR MINHA VAGA AGORA</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <h2>Perguntas Frequentes</h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">Para quem é este curso?</div>
+                    <div class="faq-answer">Para qualquer pessoa que deseja aprender sobre skin care, desde iniciantes até quem já tem algum conhecimento mas quer se aprofundar.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Preciso comprar produtos caros?</div>
+                    <div class="faq-answer">Não! Vamos te ensinar a escolher produtos de qualidade para diferentes orçamentos, incluindo opções acessíveis.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Como funciona o acesso?</div>
+                    <div class="faq-answer">Após a confirmação do pagamento, você recebe acesso imediato à plataforma do curso e pode assistir quando quiser.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">O acesso expira?</div>
+                    <div class="faq-answer">Não! O acesso ao curso é vitalício. Você pode assistir e rever as aulas quantas vezes quiser.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Preciso de conhecimento prévio?</div>
+                    <div class="faq-answer">Não! O curso foi criado para ensinar desde o básico, perfeito para iniciantes.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="final-cta">
+        <div class="container">
+            <h2>Sua Pele Merece Esse Cuidado</h2>
+            <div class="final-message">
+                <p>Imagine olhar no espelho e ver uma pele mais bonita, saudável e radiante. Imagine ter confiança para sair sem maquiagem. Imagine saber exatamente como cuidar de você mesma.</p>
+                <p>Tudo isso é possível quando você tem o conhecimento certo. E esse conhecimento está aqui, esperando por você.</p>
+                <p>A decisão é sua. Você pode continuar tentando sozinha... ou pode dar esse passo e transformar sua relação com sua pele para sempre.</p>
+            </div>
+            <a href="#preco" class="cta-button">SIM! QUERO COMEÇAR AGORA</a>
+            <div class="security-badges">
+                <div>🔒 Compra 100% segura e protegida</div>
+                <div>✅ Acesso imediato após pagamento</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Floating CTA -->
+    <div class="floating-cta">
+        <a href="#preco" class="cta-button">Começar Agora</a>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Curso de Skin Care. Todos os direitos reservados.</p>
+            <div style="margin-top: 20px;">
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+
